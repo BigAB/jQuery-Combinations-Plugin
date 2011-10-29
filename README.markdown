@@ -18,7 +18,7 @@ Pass an array of arrays to the combinations method:
 
 
 ### Browsers Tested ###
-Internet Explorer 6-8, Firefox 3-3.6, Safari 3-4, Chrome 3-5, Opera 9.6-10.5.
+Internet Explorer 8-9, Firefox 7, Chrome 15
 
 ### Unit Tests ###
 [http://bigab.github.com/jQuery-Combinations-Plugin/tests/](QUnit)
