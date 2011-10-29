@@ -11,10 +11,10 @@ derived from an array of arrays.
 So simple:
 
 Pass an array of arrays to the combinations method:
-	$.([[1,2], ["A", "B", "C"]]);
+	`$.([[1,2], ["A", "B", "C"]]);`
 	
-...and it returns ana rray of teh combinations between the arrays:
-	returns [[1,"A"], [2,"A"], [1,"B"], [2,"B"], [1,"C"], [2,"C"]]
+...and it returns an array of the combinations between the arrays:
+	returns `[[1,"A"], [2,"A"], [1,"B"], [2,"B"], [1,"C"], [2,"C"]]`
 
 
 ### Browsers Tested ###
@@ -22,11 +22,6 @@ Internet Explorer 6-8, Firefox 3-3.6, Safari 3-4, Chrome 3-5, Opera 9.6-10.5.
 
 ### Unit Tests ###
 [http://bigab.github.com/jQuery-Combinations-Plugin/tests/](QUnit)
-
-
-## Release History ##
-
-1.0pre   - (??/??/2010) Pre-Initial release
 
 
 ## License ##
