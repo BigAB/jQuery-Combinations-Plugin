@@ -26,6 +26,8 @@ $(function() {
 		var actual = $.combinations(allOptionsArray);
 		
 		deepEqual(actual, expected, "$.combinations returns one array for each possible combination");
+		deepEqual($.combinations([a]), [["01"]], "$.combinatinos returns one array for each item, if there is nothing to combine");
+		deepEqual($.combinations([b]), [ [ "white" ], [ "green" ], [ "blue" ] ], "$.combinatinos returns one array for each item, if there is nothing to combine");
 	});
 	
 	test("A slightly more complex example", function() {
