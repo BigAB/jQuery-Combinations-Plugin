@@ -11,7 +11,7 @@ derived from an array of arrays.
 So simple:
 
 Pass an array of arrays to the combinations method:
-	`$.([[1,2], ["A", "B", "C"]]);`
+	`$.combinations([[1,2], ["A", "B", "C"]]);`
 	
 ...and it returns an array of the combinations between the arrays:
 	returns `[[1,"A"], [2,"A"], [1,"B"], [2,"B"], [1,"C"], [2,"C"]]`
