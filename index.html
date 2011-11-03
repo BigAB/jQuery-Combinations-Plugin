@@ -1,31 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html> <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!-- Consider adding an manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+	<!--<![endif]-->
 	<head>
-		<meta charset="utf-8" />
-		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
-		Remove this if you use the .htaccess -->
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-		<title>jQuery Combinations Plugin</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="description" content="A simple method to create an array of all the possible combinations when passing in an array of arrays." />
 		<meta name="author" content="BigAB - Adam Barrett" />
-		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		
+		<title>jQuery Combinations Plugin</title>
+		
+		<link href='http://fonts.googleapis.com/css?family=Schoolbell' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="css/style.css">
+		
+		<script src="js/libs/modernizr-2.0.6.min.js"></script>
 	</head>
 	<body>
 		<a href="http://github.com/BigAB/jQuery-Combinations-Plugin">
 			<img alt="Fork me on GitHub" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" style="position: absolute; top: 0; right: 0; border: 0;">
 		</a>
-		<div>
+		<div class="layout page">
 			<header>
 				<h1>jQuery Combinations Plugin</h1>
 			</header>
-			<div>
-				<p>I will get to adding a description soon enough.</p>
+			<div class="layout main">
+				
+				<section class="description">
+					<h2>Description</h2>
+					<p>
+						jQuery Combinations Plugin is a simple utility method used to create an array of every possible combination derived from an array of arrays
+					</p>
+					<p>
+						Usage is simple, just pass an array of arrays to the combinations method:
+					</p>
+					<pre>$.combinations([[1,2], ["A", "B", "C"]]);</pre>
+					<p>
+						...and it returns an array of the combinations between the arrays:
+					</p>
+					<pre>returns [[1,"A"], [2,"A"], [1,"B"], [2,"B"], [1,"C"], [2,"C"]]</pre>
+				</section>
+				
+				<section class="example">
+					<h2>Examples</h2>
+					<p>
+						Some possible usages could be for a complex filtering system, where you know the user has many options and you'll need to create an instance of something for every possible combination.
+					</p>
+				</section>
+				
 			</div>
-			<footer>
-				<p>
-					&copy; Copyright 2011 by Adam Barrett
-				</p>
-			</footer>
 		</div>
+		<!--! end of #container -->
+		<footer class="sticky">
+			<p>&copy; Copyright 2011 by Adam Barrett</p>
+		</footer>
+		
+		
+		<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+		<!-- scripts concatenated and minified via ant build script-->
+		<script defer src="js/plugins.js"></script>
+		<script defer src="js/script.js"></script>
+		<!-- end scripts-->
+		<!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
+		chromium.org/developers/how-tos/chrome-frame-getting-started -->
+		<!--[if lt IE 8 ]>
+		<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+		<script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+		<![endif]-->
 	</body>
 </html>
