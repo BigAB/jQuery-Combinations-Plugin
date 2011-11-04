@@ -16,7 +16,7 @@ $(function() {
 		equal(actual.length, expected.length, "$.combinations array has the expected length");
 	});
 	
-	test("a simple example", function() {ter
+	test("a simple example", function() {
 		var a = ["01"],
 			b = ["white", "green", "blue"],
 			allOptionsArray = [a, b];
