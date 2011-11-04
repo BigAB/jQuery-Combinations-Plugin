@@ -18,3 +18,36 @@ window.log = function(){
 
 // place any jQuery/helper plugins in here, instead of separate, slower script files.
 
+/*	
+	jQuery pub/sub plugin by Peter Higgins (dante@dojotoolkit.org)
+*/	
+;(function($){
+	var cache = {};
+
+	$.publish = function(topic){
+		var args = Array.prototype.slice.call(arguments, 1);
+		cache[topic] && $.each(cache[topic], function(){
+			this.apply($, args || []);
+		});
+	};
+
+	$.subscribe = function(topic, callback){
+		if(!cache[topic]){
+			cache[topic] = [];
+		}
+		cache[topic].push(callback);
+		return [topic, callback]; // Array
+	};
+
+	$.unsubscribe = function(handle){
+		
+		var t = handle[0];
+		cache[t] && $.each(cache[t], function(idx){
+			if(this == handle[1]){
+				cache[t].splice(idx, 1);
+			}
+		});
+	};
+})(jQuery);
+
+

@@ -49,6 +49,35 @@
 					<p>
 						Some possible usages could be for a complex filtering system, where you know the user has many options and you'll need to create an instance of something for every possible combination.
 					</p>
+					<div id="hero-machine">
+						<div class="controls">
+							<form  method="get">
+								<div>
+									<label><input type="checkbox" name="gender" value="male" />Male</label>
+									<label><input type="checkbox" name="gender" value="female" />Female</label>
+								</div>
+								<div>
+									<label><input type="checkbox" name="hair" value="short" />Short</label>
+									<label><input type="checkbox" name="hair" value="long" />Long</label>
+									<label><input type="checkbox" name="hair" value="anime" />Anime</label>
+								</div>
+								<div>
+									<label><input type="checkbox" name="outfit" value="action" />Action</label>
+									<label><input type="checkbox" name="outfit" value="science" />Science</label>
+									<label><input type="checkbox" name="outfit" value="summer" />Summer</label>
+								</div>
+								<div>
+									<label><input type="checkbox" name="pet" value="cat" />Cat</label>
+									<label><input type="checkbox" name="pet" value="dog" />Dog</label>
+									<label><input type="checkbox" name="pet" value="bear" />Bear</label>
+								</div>
+								
+							</form>
+						</div>
+						<div class="display">
+							
+						</div>
+					</div>
 				</section>
 				
 			</div>
@@ -63,6 +92,7 @@
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
 		<!-- scripts concatenated and minified via ant build script-->
+		<script defer src="js/mylibs/jquery.combinations.1.0.min.js"></script>
 		<script defer src="js/plugins.js"></script>
 		<script defer src="js/script.js"></script>
 		<!-- end scripts-->

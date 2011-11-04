@@ -84,6 +84,13 @@ $(function() {
 		
 	});
 
+	test("$.combinations returns an empty array if passed an empty array", function() {
+		var a = [];
+		
+		var actual = $.combinations(a);
+		equal(actual, [], "$.combinations returns an empty array");
+	});
+
 	test("$.combinations throws an error if it is passed anything but an array of arrays", function() {
 		raises(function() {
 			var anObject = {};

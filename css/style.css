@@ -280,6 +280,55 @@ section.description > h2 {
 	display: none;
 }
 
+#hero-machine form {
+	word-spacing: -0.43em;
+	letter-spacing: -0.31em;
+	*letter-spacing: normal; /* reset IE < 8 */
+}
+
+#hero-machine form > * {
+	word-spacing: normal;
+	letter-spacing: normal;
+	vertical-align: top;
+}
+
+#hero-machine form > div {
+	display: inline-block;
+	width: 25%;
+	
+	padding: 1em;
+	
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+#hero-machine label {
+	display: block;
+	
+	-webkit-transition: text-shadow 0.5s;
+	-moz-transition: text-shadow 0.5s;
+	transition: text-shadow 0.5s;
+}
+
+#hero-machine label:hover {
+	
+	text-shadow: 2px 2px #000;
+}
+
+#hero-machine label input[type=checkbox] {
+	margin-right: 0.5em;
+}
+
+.display {
+	background-color: #fff;
+	border: 3px inset #fff;
+	color: #333;
+	min-height: 400px;
+	text-shadow: 0 0 transparent;
+	white-space: pre;
+}
+
 /* ==|== non-semantic helper classes ========================================
    Please define your styles before this section.
    ========================================================================== */
