@@ -322,11 +322,22 @@ section.description > h2 {
 
 .display {
 	background-color: #fff;
-	border: 3px inset #fff;
+	border: 2px inset #fff;
+	
 	color: #333;
 	min-height: 400px;
 	text-shadow: 0 0 transparent;
-	white-space: pre;
+}
+
+.hero-image {
+	display: inline-block;
+	white-space: normal;
+	height: 100px;
+	width: 119px;
+	background-color: red;
+	color: #fff;
+	margin: 10px;
+	vertical-align: top;
 }
 
 /* ==|== non-semantic helper classes ========================================

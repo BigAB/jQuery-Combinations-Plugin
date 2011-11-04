@@ -4,7 +4,8 @@
 
 $(function(){
 	var $heroMachine = $('#hero-machine'),
-		heroMachine = $heroMachine[0];
+		heroMachine = $heroMachine[0],
+		$images = $();
 		
 	$heroMachine.delegate(':checkbox', 'click', function(e){
 		var controlValues = [],
@@ -37,20 +38,37 @@ $(function(){
 	
 	
 	$.subscribe('change.control', function(states){
-		console.log('states: %o', states);
-		var images = [];
+		var imageDescriptions = [],
+			$imagesToShow = $();
 		$.each(states, function(i, state){
 			state.unshift({});
-			images.push($.extend.apply(this, state));
+			imageDescriptions.push($.extend.apply(this, state));
 		});
 		
-		$.each(images, function(i,image){
-			createImage(image);
+		$.each(imageDescriptions, function(i, imageDesc){
+			var id = $.map(imageDesc, function(v,key){ return v }).join('_');
+			
+			if ($images.filter('#'+id).length) {
+				console.log('found: #%s', id);
+				$imagesToShow = $imagesToShow.add($images.filter('#'+id));
+			} else {
+				var $img = createImage(imageDesc);
+				console.log('created: %o', $img);
+				$images = $images.add($img);
+				$imagesToShow = $imagesToShow.add($img);
+			}
 		});
+		
+		$('.display').children().remove().end().append($imagesToShow);
 	});
 	
 	function createImage(params) {
-		console.log('Make an image: %o', params);
+		var $img = $('<div/>').attr({
+			id: $.map(params, function(v,key){ return v }).join('_'),
+			'class': 'hero-image'
+		});
+		$img.text($.map(params, function(v,key){ return v }).join('\n'));
+		return $img;
 	}
 });
 

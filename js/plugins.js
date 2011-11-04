@@ -19,7 +19,7 @@ window.log = function(){
 // place any jQuery/helper plugins in here, instead of separate, slower script files.
 
 /*	
-	jQuery pub/sub plugin by Peter Higgins (dante@dojotoolkit.org)
+	Adapted jQuery pub/sub plugin by Peter Higgins (dante@dojotoolkit.org)
 */	
 ;(function($){
 	var cache = {};
