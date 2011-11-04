@@ -1,7 +1,7 @@
 $(function() {
 	module("$.combinations");
 	
-	test("$.combinations returns an array for every combination from a array of arrays", function() {
+	test("returns an array for every combination from a array of arrays", function() {
 		var a = ["01", "02"],
 			b = ["white", "green", "blue"],
 			c = ["one", "two"],
@@ -16,7 +16,7 @@ $(function() {
 		equal(actual.length, expected.length, "$.combinations array has the expected length");
 	});
 	
-	test("A simple example", function() {
+	test("a simple example", function() {ter
 		var a = ["01"],
 			b = ["white", "green", "blue"],
 			allOptionsArray = [a, b];
@@ -26,9 +26,11 @@ $(function() {
 		var actual = $.combinations(allOptionsArray);
 		
 		deepEqual(actual, expected, "$.combinations returns one array for each possible combination");
+		deepEqual($.combinations([a]), [["01"]], "$.combinatinos returns one array for each item, if there is nothing to combine");
+		deepEqual($.combinations([b]), [ [ "white" ], [ "green" ], [ "blue" ] ], "$.combinatinos returns one array for each item, if there is nothing to combine");
 	});
 	
-	test("A slightly more complex example", function() {
+	test("a slightly more complex example", function() {
 		var a = ["01", "02", "03", "04"],
 			b = ["white", "green", "blue", "red"],
 			c = ["one", "two", "three", "four"],
@@ -42,7 +44,7 @@ $(function() {
 		equal(actualLength, expectedLength, "$.combinations array has the expected length");
 	});
 	
-	test("A complex example", function() {
+	test("a complex example", function() {
 		var a = ["01", "02", "03", "04"],
 			b = ["white", "green", "blue", "red"],
 			c = [{"one":1}, {"two":2}, {"three":3}, {"four":4}],
@@ -70,7 +72,7 @@ $(function() {
 		deepEqual(actualFinalCombo, expectedFinalCombo, "The last combo returned by $.combinations as expected");
 	});
 	
-	test("$.combinations returns an array of arrays", function() {
+	test("returns an array of arrays", function() {
 		var a = ["01"],
 			b = ["white", "green", "blue"],
 			allOptionsArray = [a, b];
@@ -84,14 +86,14 @@ $(function() {
 		
 	});
 
-	test("$.combinations returns an empty array if passed an empty array", function() {
+	test("returns an empty array if passed an empty array", function() {
 		var a = [];
 		
 		var actual = $.combinations(a);
-		equal(actual, [], "$.combinations returns an empty array");
+		deepEqual(actual, [], "$.combinations returns an empty array");
 	});
 
-	test("$.combinations throws an error if it is passed anything but an array of arrays", function() {
+	test("throws an error if it is passed anything but an array of arrays", function() {
 		raises(function() {
 			var anObject = {};
 			$.combinations(anObject);
