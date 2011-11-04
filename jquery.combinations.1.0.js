@@ -15,7 +15,7 @@
 		
 		var combinations = [],
 			comboKeys = [],
-			numOfCombos = 1,
+			numOfCombos = arrayOfArrays.length ? 1 : 0,
 			arrayOfArraysLength = arrayOfArrays.length;
 		
 		for(var n = 0; n < arrayOfArraysLength; ++n) {
