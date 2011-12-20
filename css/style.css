@@ -280,6 +280,10 @@ section.description > h2 {
 	display: none;
 }
 
+h3 {
+	margin: auto auto 0.5em auto;
+}
+
 #hero-machine form {
 	word-spacing: -0.43em;
 	letter-spacing: -0.31em;

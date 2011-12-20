@@ -7,8 +7,8 @@ $(function(){
 		$display = $('.display'),
 		heroMachine = $heroMachine[0],
 		$images = $();
-		
-	$heroMachine.delegate(':checkbox', 'click', function(e){
+	
+	function updateControls(e){
 		var controlValues = [],
 			nameKeysObj ={},
 			availableNames = [],
@@ -35,7 +35,9 @@ $(function(){
 		combinations = $.combinations(controlValues);
 		
 		$.publish('change.control', combinations);
-	});
+	}
+		
+	$heroMachine.delegate(':checkbox', 'click', updateControls);
 	
 	$display.delegate('canvas', 'click', function(e){
 		var $this = $(this),
@@ -66,11 +68,9 @@ $(function(){
 			var id = $.map(imageDesc, function(v,key){ return v }).join('_');
 			
 			if ($images.filter('#'+id).length) {
-				console.log('found: #%s', id);
 				$imagesToShow = $imagesToShow.add($images.filter('#'+id));
 			} else {
 				var $img = createImage(imageDesc);
-				console.log('created: %o', $img);
 				$images = $images.add($img);
 				$imagesToShow = $imagesToShow.add($img);
 			}
@@ -136,6 +136,8 @@ $(function(){
 	jQuery.whenArray = function ( array ) {
 		return jQuery.when.apply( this, array );
 	};
+	
+	updateControls();
 });
 
 
