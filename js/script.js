@@ -4,6 +4,7 @@
 
 $(function(){
 	var $heroMachine = $('#hero-machine'),
+		$display = $('.display'),
 		heroMachine = $heroMachine[0],
 		$images = $();
 		
@@ -36,10 +37,26 @@ $(function(){
 		$.publish('change.control', combinations);
 	});
 	
+	$display.delegate('canvas', 'click', function(e){
+		var $this = $(this),
+			$actives;
+		
+		if ($this.hasClass('active')) {
+			$this.removeClass('active');
+		}
+		else {
+			$actives = $display.find('.active');
+			$actives.removeClass('active');
+			$this.addClass('active');
+		}
+	})
 	
 	$.subscribe('change.control', function(states){
 		var imageDescriptions = [],
-			$imagesToShow = $();
+			$imagesToShow = $(),
+			$display = $('.display'),
+			$activeImages;
+		
 		$.each(states, function(i, state){
 			state.unshift({});
 			imageDescriptions.push($.extend.apply(this, state));
@@ -59,17 +76,66 @@ $(function(){
 			}
 		});
 		
-		$('.display').children().remove().end().append($imagesToShow);
+		$activeImages = $display.find('.active');
+		$display.children().remove().removeClass('active').end().append($imagesToShow);
+		$display.children().filter($activeImages).addClass('active');
 	});
 	
 	function createImage(params) {
-		var $img = $('<div/>').attr({
-			id: $.map(params, function(v,key){ return v }).join('_'),
-			'class': 'hero-image'
-		});
-		$img.text($.map(params, function(v,key){ return v }).join('\n'));
-		return $img;
+		var canvas = $('<canvas>').attr({
+				height: 300,
+				width: 200,
+				id: $.map(params, function(v,key){ return v }).join('_')
+			}).get(0),
+			ctx = canvas.getContext('2d'),
+			srcs = [];
+			
+			$.each(params, function(key,val){
+				var filename = val;
+				if (key === 'hair') { filename = (params.gender ? params.gender : 'male') + '-hair-' + filename }
+				if (key === 'outfit') { filename = (params.gender ? params.gender : 'male') + '-outfit-' + filename }
+				srcs.push('images/'+ filename +'.png');
+			});
+			
+			preloadImages(srcs).done(function(arg){
+				$.each(srcs, function(i,val){
+					var img = $("<img />").attr('src', val).get(0);
+					ctx.drawImage(img,0,0,200,300);
+				});
+				
+			});
+			
+		
+		//$img.text($.map(params, function(v,key){ return v }).join('\n'));
+		return $(canvas);
 	}
+	
+	function preloadImages(srcs) {
+		var dfd = $.Deferred(), promises = [], img, len, deferred;
+		
+		if(!$.isArray(srcs)) {
+			srcs = [srcs];
+		}
+		
+		for(var i = 0, len = srcs.length; i < len; ++i) {
+			deferred = $.Deferred();
+			img = $("<img />");
+
+			img.load(deferred.resolve);
+			img.error(deferred.resolve);
+
+			promises.push(deferred);
+
+			img.attr('src',srcs[i]);
+		}
+
+		$.whenArray(promises).done(dfd.resolve);
+		return dfd.promise();
+	}
+
+	jQuery.whenArray = function ( array ) {
+		return jQuery.when.apply( this, array );
+	};
 });
 
 

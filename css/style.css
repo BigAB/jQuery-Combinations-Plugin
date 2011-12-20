@@ -272,7 +272,7 @@ body > footer.sticky {
 
 .layout.main > section {
 	margin: auto;
-	max-width: 560px;
+	max-width: 664px;
 	text-align: left;
 }
 
@@ -325,7 +325,7 @@ section.description > h2 {
 	border: 2px inset #fff;
 	
 	color: #333;
-	min-height: 400px;
+	min-height: 320px;
 	text-shadow: 0 0 transparent;
 }
 
@@ -338,6 +338,19 @@ section.description > h2 {
 	color: #fff;
 	margin: 10px;
 	vertical-align: top;
+}
+
+.display canvas {
+	display: inline-block;
+	white-space: normal;
+	margin: 10px;
+	vertical-align: top;
+	cursor: pointer;
+}
+
+.display canvas.active {
+	background: #8E558E;
+	outline: 2px solid yellow;
 }
 
 /* ==|== non-semantic helper classes ========================================
